@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/app/components/NavBar.tsx";
+import { SideBarNavData } from "./utils/sidebarData";
+import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,10 +29,43 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/assets/logoIcon.svg" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="h-[7vh]">
+          <Navbar />
+        </div>
+        <div className="border-4 border-red-950 h-[93vh] flex  ">
+          <div className="w-1/4 h-full sticky top-0 overflow-y-auto ">
+            <ul>
+              {SideBarNavData.map((item, idx) => {
+                return (
+                  <li key={idx * 2} className="border-4 my-4">
+                    <Link href="/" className="flex  items-center gap-x-4 ">
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={20}
+                        height={20}
+                        placeholder="blur"
+                        blurDataURL="../images/logo-blue.svg"
+                        className="w-6 h-6 border-4 border-green-900"
+                      />
+                      <span className="text-lg border-4 border-red-600">
+                        {item.title}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="w-2/4 border-r  border-l border-gray-800  h-full overflow-y-auto">
+            {children}
+          </div>
+          <div className="w-1/4 h-full overflow-y-auto">Right</div>
+        </div>
       </body>
     </html>
   );
