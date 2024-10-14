@@ -20,6 +20,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.text-semibold-16 {
+  @apply text-base  font-semibold leading-[24px];
+}
+.text-semibold-18 {
+  @apply text-lg  font-semibold leading-[27px];
+}
+.text-semibold-32 {
+  @apply text-[32px] font-semibold leading-[48px];
+}
+/* 
+font-family: Poppins;
+font-size: 32px;
+font-weight: 600;
+line-height: 48px;
+text-align: left; */
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
