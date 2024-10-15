@@ -13,10 +13,14 @@ const config: Config = {
         foreground: "var(--foreground)",
         secondary: "#1F1F1F",
         bgBlue: "#F7F9FD",
+        textLight: "#444746",
         red: {
           normal: "#CC3E2E",
           light: "#FFF0F0",
         },
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

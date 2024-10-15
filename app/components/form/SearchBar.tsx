@@ -41,14 +41,14 @@ export const SearchBar = ({
         value={searchKeyword}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
-        className="w-full pl-2 py-3 !pr-10 border border-bgBlue bg-bgBlue !rounded-[8px]"
+        className="w-full pl-4 py-3 !pr-10 border border-bgBlue bg-bgBlue !rounded-[8px]"
       />
       <Image
         src={SearchIcon}
         alt="Search"
-        width={16}
-        height={16}
-        className="absolute top-3.5 right-2 cursor-pointer"
+        width={20}
+        height={20}
+        className="absolute top-3.5 right-3 cursor-pointer"
         onClick={handleSearch}
       />
     </div>

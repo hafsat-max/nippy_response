@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
   --background: #ffffff;
-  /* --foreground: #171717; */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -16,17 +16,8 @@
   scrollbar-width: none; /* Firefox */
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 body {
-  /* color: var(--foreground); */
-  /* background: var(--background); */
-  font-family: Arial, Helvetica, sans-serif;
+  @apply font-poppins;
 }
 
 .text-semibold-16 {
@@ -38,12 +29,6 @@ body {
 .text-semibold-32 {
   @apply text-[32px] font-semibold leading-[48px];
 }
-/* 
-font-family: Poppins;
-font-size: 32px;
-font-weight: 600;
-line-height: 48px;
-text-align: left; */
 
 @layer utilities {
   .text-balance {

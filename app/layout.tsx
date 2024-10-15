@@ -6,6 +6,7 @@ import { FooterData, SideBarNavData } from "./utils/sidebarData";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../public/assets/nippyLogo.svg";
+import AlertNotifications from "./components/Alert/AlertNotifications";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -107,8 +108,8 @@ export default function RootLayout({
               </p>
             </footer>
           </div>
-          <div className="w-1/4 h-full overflow-y-auto hidden md:block">
-            Right
+          <div className="w-1/4 h-full overflow-y-auto hidden md:block px-6">
+            <AlertNotifications/>
           </div>
         </div>
       </body>
