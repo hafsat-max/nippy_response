@@ -14,6 +14,11 @@ interface SideBarNavDataProps {
   icon: string;
   link: string;
 }
+interface FooterProps {
+  id: number;
+  title: string;
+  link: string;
+}
 
 export const SideBarNavData: SideBarNavDataProps[] = [
   {
@@ -56,6 +61,43 @@ export const SideBarNavData: SideBarNavDataProps[] = [
     id: 7,
     title: "Disaster response",
     icon: DisasterIcon,
+    link: "/overview",
+  },
+];
+export const FooterData: FooterProps[] = [
+  {
+    id: 1,
+    title: "About",
+    link: "/overview",
+  },
+  {
+    id: 2,
+    title: "Emergency contact",
+    link: "/overview",
+  },
+  {
+    id: 3,
+    title: "Health",
+    link: "/overview",
+  },
+  {
+    id: 4,
+    title: "Blog",
+    link: "/overview",
+  },
+  {
+    id: 5,
+    title: "Contact us",
+    link: "/overview",
+  },
+  {
+    id: 6,
+    title: "Support",
+    link: "/overview",
+  },
+  {
+    id: 7,
+    title: "Disaster response",
     link: "/overview",
   },
 ];
