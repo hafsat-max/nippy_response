@@ -14,6 +14,7 @@ const Button = ({
       className={`p-4 rounded-lg flex items-center justify-center gap-3 ${className}`}
     >
       {text}
+
       {rightIcon}
     </button>
   );
