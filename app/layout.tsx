@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/NavBar.tsx";
-import { SideBarNavData } from "./utils/sidebarData";
+import { FooterData, SideBarNavData } from "./utils/sidebarData";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "../public/assets/nippyLogo.svg";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,38 +34,82 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-[7vh]">
+        <div className="h-[8vh] sm:h-[5vh] xl:h-[10vh] flex  items-center justify-center">
           <Navbar />
         </div>
-        <div className="border-4 border-red-950 h-[93vh] flex  ">
-          <div className="w-1/4 h-full sticky top-0 overflow-y-auto ">
-            <ul>
-              {SideBarNavData.map((item, idx) => {
+        <div className="border-t border-gray-300 h-[92vh] sm:h-[95vh] lg:h-[90vh] md:flex ">
+          <div className="w-1/4 h-full sticky top-0 overflow-y-auto hidden md:block  ">
+            <div className="flex items-center pl-4 mt-4 mb-6">
+              <Image
+                src={SideBarNavData[0].icon}
+                alt={SideBarNavData[0].title}
+                width={20}
+                height={20}
+                className="w-8 h-8 mr-4 "
+              />
+              <span className="text-lg font-semibold">
+                {SideBarNavData[0].title}
+              </span>
+            </div>
+            <ul className="pl-4">
+              {SideBarNavData.slice(1).map((item, idx) => {
                 return (
-                  <li key={idx * 2} className="border-4 my-4">
-                    <Link href="/" className="flex  items-center gap-x-4 ">
-                      <Image
-                        src={item.icon}
-                        alt={item.title}
-                        width={20}
-                        height={20}
-                        placeholder="blur"
-                        blurDataURL="../images/logo-blue.svg"
-                        className="w-6 h-6 border-4 border-green-900"
-                      />
-                      <span className="text-lg border-4 border-red-600">
-                        {item.title}
-                      </span>
+                  <li key={idx * 2} className={` my-4 `}>
+                    <Link
+                      href="/"
+                      className="max-w-max flex  items-center gap-x-4 border-2 border-[#3D509E] pr-4 bg-[#C9D1F1] rounded-lg"
+                      style={{ width: "100%" }}
+                    >
+                      <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg">
+                        <Image
+                          src={item.icon}
+                          alt={item.title}
+                          width={20}
+                          height={20}
+                          className="w-6 h-6 "
+                        />
+                      </div>
+                      <span className="text-lg ">{item.title}</span>
                     </Link>
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div className="w-2/4 border-r  border-l border-gray-800  h-full overflow-y-auto">
+          <div className="w-full md:w-2/4 border-r  border-l border-gray-300  h-full overflow-y-auto scrollbar-hide">
             {children}
+
+            <footer className="bg-[#FFF0F0] py-6 px-10">
+              <Link href="/">
+                <Image
+                  src={Logo}
+                  alt="Nippy Logo"
+                  width={128}
+                  height={36}
+                  className="w-48 md:w-60 h-auto"
+                />
+              </Link>
+
+              <ul className="mt-8">
+                {FooterData.map((item, idx) => {
+                  return (
+                    <li key={idx * 2} className="text-[#444746] my-4">
+                      <Link href="/" className="">
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="text-[#444746] mt-2">
+                {" "}
+                &copy; Copyrigth 2024, All right reserved.
+              </p>
+            </footer>
           </div>
-          <div className="w-1/4 h-full overflow-y-auto">Right</div>
+          <div className="w-1/4 h-full overflow-y-auto hidden md:block">
+            Right
+          </div>
         </div>
       </body>
     </html>
