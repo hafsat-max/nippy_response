@@ -3,9 +3,10 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+
 :root {
   --background: #ffffff;
-}
+} 
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -18,6 +19,8 @@
 
 body {
   @apply font-poppins;
+  background: #ffffff;
+  background-color: #ffffff
 }
 
 .text-semibold-16 {
@@ -33,5 +36,18 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+      background: #fff; /* White text */
+      color: #1c1c1c; /* Dark gray instead of black */
+  }
+
+  .not-found-page {
+      background: #f0f0f0; /* Override dark mode for 404 page */
+      color: #000; /* Ensure text is visible */
   }
 }

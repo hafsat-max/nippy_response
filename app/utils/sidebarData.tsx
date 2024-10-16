@@ -6,6 +6,15 @@ import {
   AmbulanceIcon,
   DomesticViolenceIcon,
   DisasterIcon,
+  AccidentIcon,
+  CrimeIcon,
+  FloodIcon,
+  MedicalIcon,
+  RapeIcon,
+  RedFireIcon,
+  Blog1,
+  Blog2,
+  Blog3,
 } from "@/app/utils/icons";
 
 interface SideBarNavDataProps {
@@ -14,12 +23,113 @@ interface SideBarNavDataProps {
   icon: string;
   link: string;
 }
+interface BlogDataProps {
+  id: number;
+  title: string;
+  icon: string;
+  link: string;
+  date: string;
+  time: string;
+}
 interface FooterProps {
   id: number;
   title: string;
   link: string;
 }
+interface LocationServicesDataProps {
+  id: number;
+  title: string;
+  link: string;
+  phone: string;
+  location: string;
+}
+interface EmergenciesDataProps {
+  id: number;
+  title: string;
+  icon: string;
+}
 
+export const EmergenciesData: EmergenciesDataProps[] = [
+  {
+    id: 1,
+    title: "Accident",
+    icon: AccidentIcon,
+  },
+  {
+    id: 2,
+    title: "Fire",
+    icon: RedFireIcon,
+  },
+  {
+    id: 3,
+    title: "Medical",
+    icon: MedicalIcon,
+  },
+  {
+    id: 4,
+    title: "Crime",
+    icon: CrimeIcon,
+  },
+  {
+    id: 5,
+    title: "Rape",
+    icon: RapeIcon,
+  },
+  {
+    id: 6,
+    title: "Flood",
+    icon: FloodIcon,
+  },
+];
+export const LocationServicesData: LocationServicesDataProps[] = [
+  {
+    id: 1,
+    title: "Oval Police station",
+    link: "/",
+    phone: "09098765678",
+    location: "8 min read",
+  },
+  {
+    id: 2,
+    title: "Pentagon ambulance and medicals",
+    link: "/",
+    phone: "09098765678",
+    location: "8 min read",
+  },
+  {
+    id: 3,
+    title: "Westgate fire station",
+    link: "/",
+    phone: "09098765678",
+    location: "8 min read",
+  },
+]
+export const BlogData: BlogDataProps[] = [
+  {
+    id: 1,
+    title: "How to administer CPR",
+    icon: Blog1,
+    link: "/",
+    date: "Oct 9, 2024",
+    time: "8 min read",
+  },
+  {
+    id: 2,
+    title: "First aid tips",
+    icon: Blog2,
+    link: "/",
+    date: "Oct 9, 2024",
+    time: "8 min read",
+  },
+  {
+    id: 3,
+    title: "What to do in a fire accident",
+    icon: Blog3,
+    link: "/",
+    date: "Oct 9, 2024",
+    time: "8 min read",
+  },
+];
 export const SideBarNavData: SideBarNavDataProps[] = [
   {
     id: 1,
@@ -31,7 +141,7 @@ export const SideBarNavData: SideBarNavDataProps[] = [
     id: 2,
     title: "Police",
     icon: PoliceIcon,
-    link: "/",
+    link: "/police",
   },
   {
     id: 3,
@@ -64,6 +174,7 @@ export const SideBarNavData: SideBarNavDataProps[] = [
     link: "/disaster",
   },
 ];
+
 export const FooterData: FooterProps[] = [
   {
     id: 1,
