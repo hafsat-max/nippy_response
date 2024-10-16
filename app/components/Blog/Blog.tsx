@@ -15,8 +15,8 @@ const Blog = () => {
               height={400}
               alt="police image"
               className="w-full"
-              placeholder="blur"
-              blurDataURL={item.icon}
+              //   placeholder="blur"
+              //   blurDataURL={item.icon}
             />
             <div className="mt-2">
               <h3 className="font-semibold text-lg mb-4">{item.title}</h3>
