@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/NavBar.tsx";
 import { FooterData } from "./utils/sidebarData";
@@ -9,16 +9,16 @@ import Logo from "../public/assets/nippyLogo.svg";
 import AlertNotifications from "./components/Alert/AlertNotifications";
 import SideMenu from "./components/SideMenu";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,55 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/assets/logoIcon.svg" />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={``}>
         <div className="h-[8vh] sm:h-[5vh] xl:h-[10vh] flex  items-center justify-center">
           <Navbar />
         </div>
         <div className="border-t border-gray-300 h-[92vh] sm:h-[95vh] lg:h-[90vh] md:flex ">
           <div className="w-1/4 h-full sticky top-0 overflow-y-auto hidden md:block  ">
             <SideMenu />
-            {/* <div className="flex items-center pl-4 mt-4 mb-6">
-              <Image
-                src={SideBarNavData[0].icon}
-                alt={SideBarNavData[0].title}
-                width={20}
-                height={20}
-                className="w-8 h-8 mr-4 "
-              />
-              <span className="text-lg font-semibold">
-                {SideBarNavData[0].title}
-              </span>
-            </div>
-            <ul className="pl-4">
-              {SideBarNavData.slice(1).map((item, idx) => {
-                return (
-                  <li key={idx * 2} className={` my-4 `}>
-                    <Link
-                      href={item?.link}
-                      className={`max-w-max flex  items-center gap-x-4 ${
-                        pathname === item?.link
-                          ? "bg-[#C9D1F1] border-2 border-[#3D509E]"
-                          : ""
-                      }  pr-4  rounded-lg`}
-                      style={{ width: "100%" }}
-                    >
-                      <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg">
-                        <Image
-                          src={item.icon}
-                          alt={item.title}
-                          width={20}
-                          height={20}
-                          className="w-6 h-6 "
-                        />
-                      </div>
-                      <span className="text-lg ">{item.title}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul> */}
           </div>
           <div className="w-full md:w-2/4 border-r  border-l border-gray-300  h-full overflow-y-auto scrollbar-hide">
             {children}

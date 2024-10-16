@@ -1,40 +1,44 @@
-import police from "@/public/assets/police-service.png";
 import Image from "next/image";
-import EmergencyContact from "./components/EmergencyContact";
+import { GeneralEmergencyContact } from "./components/EmergencyContact";
+import { EmergenciesData } from "./utils/sidebarData";
+import Blog from "./components/Blog/Blog";
+import ServicesNearYou from "./components/ServicesNearYou/ServicesNearYou";
 
 export default function Home() {
   return (
-    <section className=" py-10 flex flex-col gap-10">
-      <div className="flex flex-col gap-3 px-14">
-        <h3 className="text-secondary text-semibold-18">Good morning,</h3>
-        <p className="text-semibold-32 text-secondary">
-          Find the Nearest Police Station.........
+    <section className=" py-10 flex flex-col gap-y-10">
+      <div className="flex flex-col gap-3 px-6 md:px-14">
+        <h3 className="text-secondary text-semibold-18">Good day,</h3>
+        <p className="font-semibold text-2xl md:3xl text-secondary">
+          What’s your emergency?
         </p>
-      </div>
-
-      <div className="flex flex-col gap-8 p-8 ">
-        {/* police */}
-        <Image
-          src={police}
-          width={722}
-          height={400}
-          alt="police image"
-          className="w-full"
-        />
-
-        {/* map */}
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4826840290193!2d3.3430708105118194!3d6.586764793379338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92213a1785c1%3A0xfbca096bb8cb53fc!2sUnique%20Shopping%20Mall!5e0!3m2!1sen!2sng!4v1686741477397!5m2!1sen!2sng"
-          width="600"
-          height="450"
-          className="w-full rounded-lg"
-          style={{ border: "0" }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-
-        {/* emergency  */}
-        <EmergencyContact />
+        <div className="flex gap-x-6 overflow-x-scroll scrollbar-hide text-center">
+          {EmergenciesData.map((item, idx) => {
+            return (
+              <div key={idx * 2}>
+                <div>
+                  <div
+                    className={`w-12 h-12 md:w-16 md:h-16 flex items-center justify-center  rounded-lg bg-bgBlue `}
+                  >
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={20}
+                      height={20}
+                      className="w-6 h-6 md:w-8 md:h-8 "
+                    />
+                  </div>
+                  <p className="mt-2 text-sm sm:text-md">{item.title}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-8">
+          <GeneralEmergencyContact />
+          <ServicesNearYou />
+        </div>
+        <Blog />
       </div>
     </section>
   );
