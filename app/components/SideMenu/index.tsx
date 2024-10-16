@@ -33,7 +33,11 @@ const SideMenu = () => {
                 }  pr-4  rounded-lg`}
                 style={{ width: "100%" }}
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg">
+                <div
+                  className={`w-12 h-12 flex items-center justify-center  rounded-lg ${
+                    pathname === item?.link ? "bg-white" : " bg-bgBlue"
+                  } `}
+                >
                   <Image
                     src={item.icon}
                     alt={item.title}
