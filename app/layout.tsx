@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/NavBar.tsx";
 import { FooterData } from "./utils/sidebarData";
@@ -9,16 +9,16 @@ import Logo from "../public/assets/nippyLogo.svg";
 import AlertNotifications from "./components/Alert/AlertNotifications";
 import SideMenu from "./components/SideMenu";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
