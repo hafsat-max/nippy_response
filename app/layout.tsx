@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/NavBar.tsx";
-import { FooterData, SideBarNavData } from "./utils/sidebarData";
+import { FooterData } from "./utils/sidebarData";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../public/assets/nippyLogo.svg";
 import AlertNotifications from "./components/Alert/AlertNotifications";
+import SideMenu from "./components/SideMenu";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,7 +41,8 @@ export default function RootLayout({
         </div>
         <div className="border-t border-gray-300 h-[92vh] sm:h-[95vh] lg:h-[90vh] md:flex ">
           <div className="w-1/4 h-full sticky top-0 overflow-y-auto hidden md:block  ">
-            <div className="flex items-center pl-4 mt-4 mb-6">
+            <SideMenu />
+            {/* <div className="flex items-center pl-4 mt-4 mb-6">
               <Image
                 src={SideBarNavData[0].icon}
                 alt={SideBarNavData[0].title}
@@ -57,8 +59,12 @@ export default function RootLayout({
                 return (
                   <li key={idx * 2} className={` my-4 `}>
                     <Link
-                      href="/"
-                      className="max-w-max flex  items-center gap-x-4 border-2 border-[#3D509E] pr-4 bg-[#C9D1F1] rounded-lg"
+                      href={item?.link}
+                      className={`max-w-max flex  items-center gap-x-4 ${
+                        pathname === item?.link
+                          ? "bg-[#C9D1F1] border-2 border-[#3D509E]"
+                          : ""
+                      }  pr-4  rounded-lg`}
                       style={{ width: "100%" }}
                     >
                       <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg">
@@ -75,7 +81,7 @@ export default function RootLayout({
                   </li>
                 );
               })}
-            </ul>
+            </ul> */}
           </div>
           <div className="w-full md:w-2/4 border-r  border-l border-gray-300  h-full overflow-y-auto scrollbar-hide">
             {children}
@@ -109,7 +115,7 @@ export default function RootLayout({
             </footer>
           </div>
           <div className="w-1/4 h-full overflow-y-auto hidden md:block px-6">
-            <AlertNotifications/>
+            <AlertNotifications />
           </div>
         </div>
       </body>
