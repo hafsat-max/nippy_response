@@ -15,6 +15,9 @@ import {
   Blog1,
   Blog2,
   Blog3,
+  HomeIcon,
+  SearchIcon,
+  BlackBell,
 } from "@/app/utils/icons";
 
 interface SideBarNavDataProps {
@@ -103,7 +106,7 @@ export const LocationServicesData: LocationServicesDataProps[] = [
     phone: "09098765678",
     location: "8 min read",
   },
-]
+];
 export const BlogData: BlogDataProps[] = [
   {
     id: 1,
@@ -172,6 +175,32 @@ export const SideBarNavData: SideBarNavDataProps[] = [
     title: "Disaster response",
     icon: DisasterIcon,
     link: "/disaster",
+  },
+];
+export const MobileNavData: SideBarNavDataProps[] = [
+  {
+    id: 1,
+    title: "Home",
+    icon: HomeIcon,
+    link: "/",
+  },
+  {
+    id: 2,
+    title: "Services",
+    icon: EmergencyIcon,
+    link: "/police",
+  },
+  {
+    id: 3,
+    title: "Alert",
+    icon: BlackBell,
+    link: "/fire-department",
+  },
+  {
+    id: 4,
+    title: "search",
+    icon: SearchIcon,
+    link: "/health",
   },
 ];
 

@@ -7,6 +7,9 @@ import HomeIcon from "../../../public/icons/homeIcon.svg";
 
 import Link from "next/link";
 import { SearchBar } from "../form/SearchBar";
+import { MobileNavData } from "@/app/utils/sidebarData";
+import AlertNotifications from "../Alert/AlertNotifications";
+import SideMenu from "../SideMenu";
 
 const Navbar = () => {
   const [wordEntered, setWordEntered] = useState("");
@@ -73,6 +76,112 @@ const Navbar = () => {
           />
         </div>
       </div>
+    </div>
+  );
+};
+
+export const MobileNav = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+  const closeDrawer = () => setIsDrawerOpen(false);
+  const showAlert = () => setIsAlertVisible(true);
+  const closeAlertDrawer = () => setIsAlertVisible(false);
+  return (
+    <div className="block md:hidden">
+      <div
+        // className="bg-white w-full"
+        className="bg-white w-full fixed z-20 left-0 right-0 bottom-1 gap-2 p-4 flex justify-between"
+        style={{
+          // background: "rgba(0, 0, 0, .3)",
+          // width: "max-content",
+          display: "block",
+          padding: "0.7rem 1.7rem",
+          position: "fixed",
+          zIndex: "2",
+          left: 0,
+          right: 0,
+          // transform: "translateX(-50%)",
+          bottom: "1rem",
+          gap: ".8rem",
+          borderRadius: "3rem",
+          backdropFilter: "blur(1px)",
+        }}
+      >
+        <div
+          className="flex w-full justify-between"
+          style={{ display: "flex" }}
+        >
+          {MobileNavData.map((item, idx) => {
+            return (
+              <div key={idx * 2} className="flex flex-col items-center">
+                {/* Handle special cases for "Services" and "Alert" */}
+                {item.title === "Services" ? (
+                  <button
+                    onClick={toggleDrawer}
+                    className="flex flex-col items-center"
+                  >
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
+                    <p className="text-xs mt-2">{item.title}</p>
+                  </button>
+                ) : item.title === "Alert" ? (
+                  <button
+                    onClick={showAlert}
+                    className="flex flex-col items-center"
+                  >
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
+                    <p className="text-xs mt-2">{item.title}</p>
+                  </button>
+                ) : (
+                  <Link href={item.link} className="flex flex-col items-center">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
+                    <p className="text-xs mt-2">{item.title}</p>
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Side Drawer */}
+      <div
+        className={`fixed top-0 left-0 h-full bg-white z-30 transition-transform ${
+          isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+        } w-3/4 sm:w-2/4`}
+        style={{ transition: "transform 0.3s ease-in-out" }}
+      >
+        <SideMenu closeDrawer={closeDrawer} />
+      </div>
+      {isAlertVisible && (
+        <div
+          className="fixed top-4 right-0 bg-[#CC3E2E] text-white p-4 z-40 w-3/4 sm:w-1/4 "
+          style={{ transition: "transform 0.3s ease-in-out" }}
+        >
+          <div className="">
+            <AlertNotifications closeDrawer={closeAlertDrawer} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

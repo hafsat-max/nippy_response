@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/app/components/NavBar.tsx";
+import Navbar, { MobileNav } from "@/app/components/NavBar.tsx";
 import { FooterData } from "./utils/sidebarData";
 import Link from "next/link";
 import Image from "next/image";
@@ -38,6 +38,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         <div className="border-t border-gray-300 h-[92vh] sm:h-[95vh] lg:h-[90vh] md:flex ">
+          {/* services menu */}
           <div className="w-1/4 h-full sticky top-0 overflow-y-auto hidden md:block  ">
             <SideMenu />
           </div>
@@ -72,10 +73,12 @@ export default function RootLayout({
               </p>
             </footer>
           </div>
-          <div className="w-1/4 h-full overflow-y-auto hidden md:block px-6">
+          {/* alert */}
+          <div className="w-1/4 h-full overflow-y-auto hidden md:block px-6 scrollbar-hide">
             <AlertNotifications />
           </div>
         </div>
+        <MobileNav />
       </body>
     </html>
   );
