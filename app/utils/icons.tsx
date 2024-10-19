@@ -14,6 +14,9 @@ import RedFireIcon from "../../public/icons/emergencies/redFire.svg";
 import Blog1 from "../../public/images/blog/blog1.svg";
 import Blog2 from "../../public/images/blog/blog2.svg";
 import Blog3 from "../../public/images/blog/blog3.svg";
+import HomeIcon from "../../public/icons/homeIcon.svg";
+import SearchIcon from "../../public/icons/searchIcon.svg";
+import BlackBell from "../../public/icons/blackBell.svg";
 
 export {
   EmergencyIcon,
@@ -32,4 +35,7 @@ export {
   Blog1,
   Blog2,
   Blog3,
+  HomeIcon,
+  SearchIcon,
+  BlackBell,
 };

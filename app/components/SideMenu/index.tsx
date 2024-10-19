@@ -5,11 +5,24 @@ import Image from "next/image";
 import { SideBarNavData } from "@/app/utils/sidebarData";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
 
-const SideMenu = () => {
+interface SideMenuProps {
+  closeDrawer?: () => void;
+}
+
+const SideMenu = ({ closeDrawer }: SideMenuProps) => {
   const pathname = usePathname();
   return (
     <div>
+      <div className="flex items-end justify-end mt-4 mr-4">
+        <button
+          className=" md:hidden bg-bgBlue w-8 h-8 flex items-center justify-center  rounded-full"
+          onClick={closeDrawer}
+        >
+          <AiOutlineClose className="w-4 h-4 font-black text-black" />
+        </button>
+      </div>
       <div className="flex items-center pl-4 mt-4 mb-6">
         <Image
           src={SideBarNavData[0].icon}
@@ -26,6 +39,7 @@ const SideMenu = () => {
             <li key={idx * 2} className={` my-4 `}>
               <Link
                 href={item?.link}
+                onClick={closeDrawer}
                 className={`max-w-max flex  items-center gap-x-4 ${
                   pathname === item?.link
                     ? "bg-[#C9D1F1] border-2 border-[#3D509E]"
