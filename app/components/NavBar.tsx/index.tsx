@@ -174,7 +174,7 @@ export const MobileNav = () => {
       </div>
       {isAlertVisible && (
         <div
-          className="fixed top-4 right-0 bg-[#CC3E2E] text-white p-4 z-40 w-3/4 sm:w-1/4 "
+          className="fixed top-4 right-0 bg-white text-black p-4 z-40 w-3/4 sm:w-1/4 "
           style={{ transition: "transform 0.3s ease-in-out" }}
         >
           <div className="">

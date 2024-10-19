@@ -39,6 +39,7 @@ const SideMenu = ({ closeDrawer }: SideMenuProps) => {
             <li key={idx * 2} className={` my-4 `}>
               <Link
                 href={item?.link}
+                onClick={closeDrawer}
                 className={`max-w-max flex  items-center gap-x-4 ${
                   pathname === item?.link
                     ? "bg-[#C9D1F1] border-2 border-[#3D509E]"
